@@ -11,16 +11,27 @@ import blurBg from '../src/assets/bg-blur.png'
 import Stripes from '../src/assets/stripes.svg'
 import { styled } from 'nativewind'
 import { StatusBar } from 'expo-status-bar'
-import { Slot, Stack } from 'expo-router'
+import * as SecureStore from 'expo-secure-store'
+import { Stack } from 'expo-router'
+import { useEffect, useState } from 'react'
 
 const StyledStripes = styled(Stripes)
 
-export default function layout() {
+export default function Layout() {
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState<
+    null | boolean
+  >(null)
   const [hasLoadedFonts] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
     BaiJamjuree_700Bold,
   })
+
+  useEffect(() => {
+    SecureStore.getItemAsync('token').then(
+      (token) => setIsUserAuthenticated(!!token), // se Existe "!!" converte o token para true, se n, vira false
+    )
+  }, [])
 
   if (!hasLoadedFonts) {
     return null
@@ -39,7 +50,11 @@ export default function layout() {
           headerShown: false,
           contentStyle: { backgroundColor: 'transparent' },
         }}
-      />
+      >
+        <Stack.Screen name="index" redirect={isUserAuthenticated} />
+        <Stack.Screen name="new" />
+        <Stack.Screen name="memories" />
+      </Stack>
     </ImageBackground>
   )
 }
