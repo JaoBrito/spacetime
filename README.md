@@ -14,6 +14,11 @@
 ```npm install node```
 ```npm install next```
 
-
+## Mobile
+Baixe o **Expo go** no seu smartphone
+<br />
+Digite ```npm run start``` no terminal 
+<br />
+Logo depois, scannei o código QR Code que aparecerá e abra no aplicativo.
 
 
