@@ -55,8 +55,8 @@ export default function Layout() {
           animation: 'fade',
         }}
       >
-        <Stack.Screen name="memories" />
         <Stack.Screen name="index" redirect={isUserAuthenticated} />
+        <Stack.Screen name="memories" />
         <Stack.Screen name="new" />
       </Stack>
     </ImageBackground>

@@ -117,7 +117,6 @@ export default function NewMemory() {
           {preview ? (
             <Image
               source={{ uri: preview }}
-              alt=""
               className="h-full w-full rounded-lg object-cover"
             />
           ) : (
