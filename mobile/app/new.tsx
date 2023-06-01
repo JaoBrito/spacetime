@@ -115,6 +115,7 @@ export default function NewMemory() {
           className="h-32 items-center justify-center rounded-lg border border-dashed border-gray-500 bg-black/20"
         >
           {preview ? (
+            // eslint-disable-next-line jsx-a11y/alt-text
             <Image
               source={{ uri: preview }}
               className="h-full w-full rounded-lg object-cover"

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useRouter } from 'expo-router'
+import { Link, useRouter } from 'expo-router'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
 import * as SecureStore from 'expo-secure-store'
@@ -53,6 +53,7 @@ export default function App() {
 
       handleGithubOAuthCode(code)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response])
 
   return (
@@ -82,7 +83,8 @@ export default function App() {
       </View>
 
       <Text className="text-center font-body text-sm leading-relaxed text-gray-200">
-        Feito com 💜 no NLW da Rocketseat
+        Feito com 💜 no NLW da {''}
+        <Link href={'https://rocketseat.com.br'}>Rocketseat</Link>
       </Text>
     </View>
   )
